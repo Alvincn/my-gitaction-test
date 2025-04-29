@@ -16,7 +16,7 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDFa29eRc75/EsebDtrOg/rmGYf0OsYov5HbTOXu1WYjYEWSstxUrLKFZe6kPsxgGdVPk3+6GztnvBUmwRvzPpTP9am4Gh0nFxph/J6I5JLZyhwEjOr7eWuAKQDa9CM0eDaVDnkYtYvYD32axJ0gOQV6m1II8iXe19wAlmHXZydH9+FbOP42cOS5nlP9N1y9mPhvHaFB57zLY5e1LDH60CtQIMLzbPvUjgDj7B2BlyCm7oRdo3MlvsjSKZxDG6yu2tOS+iRWBTXImX/b+YYDdyuK8bu7p9W3tdiQzPWB8UHHZFosatZdoTT0Yp7FdO+QdYOCsOHYhXntFdh28snLPsSDrbwOiW6JLsep0SGP/jI4skQrBSD4lDTF7fIsANYrB/BTYGxlC3sSCnOk9NKXtt4I8yMGvQT9WPOzdWTmNl7r8yIW8PZQxUXWfM4iuf+4c7DVSe89w/+Kz7lsqZ3teCEDE1EBpTi9xT776mjTzexxCHzAKjaxosL2oKh7CQ9RAPlByGKFcnGA+mu847RseKyKI44Km7H2LGwT9nk3awQM8duuO/vHEtmLmIr4x8OLlxfawGZO3isuhatgbQDOD++74z3T/nj+670KNPit9DmjCNtr+TAqvzQF8hxzo2wXNUZ4rTry+0YDmaZhdVnwmdvsc8XixXecWc32cD2Bjh4YQ== 2289530573@qq.com
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Copy files to server
         run: |
