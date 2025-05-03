@@ -1,5 +1,5 @@
 # 选择 Node 运行环境
-FROM node:20-alpine
+FROM node:18.20.7
 
 # 设置工作目录
 WORKDIR /app
