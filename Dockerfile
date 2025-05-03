@@ -8,10 +8,10 @@ WORKDIR /app
 COPY . .
 
 # 安装依赖
-RUN npm install
+RUN yarn install
 
 # 生成静态文件
-RUN npm run build
+RUN yarn build
 
 # 启动应用
-CMD ["npm", "run", "start"]
+CMD ["yarn", "dev"]
