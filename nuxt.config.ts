@@ -6,5 +6,6 @@ export default defineNuxtConfig({
     server: {
       allowedHosts: true
     }
-  }
+  },
+  ssr: true,
 })

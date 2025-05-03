@@ -14,4 +14,4 @@ RUN yarn install
 RUN yarn build
 
 # 启动应用
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
