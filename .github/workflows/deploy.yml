@@ -25,7 +25,7 @@ jobs:
     - name: Build and restart Docker on server
       run: |
         ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} root@${{ secrets.SERVER_HOST }} << 'EOF'
-          cd /path/to/deploy
+          cd /var/www/my_gitaction_test
           docker stop my_gitaction_test || true
           docker rm my_gitaction_test || true
           docker build -t my_gitaction_test .
