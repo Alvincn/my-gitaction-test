@@ -1,13 +1,17 @@
-# Dockerfile
-FROM node:18.20.5
+# 选择 Node 运行环境
+FROM node:20-alpine
 
+# 设置工作目录
 WORKDIR /app
 
+# 复制文件
 COPY . .
 
-RUN yarn install
-RUN yarn build
+# 安装依赖
+RUN npm install
 
-EXPOSE 3000
+# 生成静态文件
+RUN npm run build
 
-CMD ["yarn", "start"]
+# 启动应用
+CMD ["npm", "run", "start"]
