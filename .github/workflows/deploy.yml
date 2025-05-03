@@ -3,7 +3,7 @@ name: Deploy to Aliyun
 on:
   push:
     branches:
-      - main  # 你想监听的分支
+      - main
 
 jobs:
   deploy:
@@ -20,13 +20,12 @@ jobs:
 
     - name: Copy files to server
       run: |
-        rsync -avz -e "ssh -p ${{ secrets.SERVER_PORT }}" ./ \
-          ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/my_gitaction_test
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }}" ./ root@${{ secrets.SERVER_HOST }}:/var/www/my_gitaction_test
 
     - name: Build and restart Docker on server
       run: |
-        ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-          cd /var/www/my_gitaction_test
+        ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_PORT }} root@${{ secrets.SERVER_HOST }} << 'EOF'
+          cd /path/to/deploy
           docker stop my_gitaction_test || true
           docker rm my_gitaction_test || true
           docker build -t my_gitaction_test .
